@@ -1,3 +1,6 @@
+
+
+
 function componentFromStr(numStr, percent) {
     var num = Math.max(0, parseInt(numStr, 10));
     return percent ?
@@ -19,7 +22,7 @@ function rgbToHex(rgb) {
 
 
 function shouldTextBeBlack (backgroundcolor) {
-    return computeLuminence(backgroundcolor) > 0.179;
+    return computeLuminence(backgroundcolor) > 0.5;
   }
   
   function computeLuminence(backgroundcolor) {
@@ -39,7 +42,7 @@ function shouldTextBeBlack (backgroundcolor) {
     }
     
     var luminence = 0.2126 * colors.r + 0.7152 * colors.g + 0.0722 * colors.b;
-  
+    console.log(luminence)
     return luminence;
   }
   
@@ -54,6 +57,7 @@ function shouldTextBeBlack (backgroundcolor) {
 
 
 const lightGreyBtn = document.querySelectorAll(".lightGreyBtn") 
+const arrow = document.querySelector("#arrow path")
 lightGreyBtn.forEach(btn => {
    
     let myDivObjBgColor = window.getComputedStyle(btn).backgroundColor
@@ -62,7 +66,11 @@ lightGreyBtn.forEach(btn => {
     if(shouldTextBeBlack(rgbToHex(myDivObjBgColor))){
       console.log("light")
       btn.classList.add("drkGreyText");
-      document.getElementById("arrow").src="./img/darkArrow.png";
+      arrow.style.stroke="#4a4a4a"
+     
+    }
+    else {
+        arrow.style.stroke="white"
     }
   
    
