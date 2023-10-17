@@ -264,7 +264,6 @@ const y3 = infoIncons[2].getBoundingClientRect().top
 
 
 infoIncons.forEach( (item , index)=> {
-   
     item.addEventListener("mouseover",()=>{
         document.querySelector(`#tf${index+1}`).style.opacity="1"
         document.querySelector(`#tf${index+1}`).style.display="flex" 
