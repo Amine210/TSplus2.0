@@ -1,3 +1,62 @@
+:root {
+  --primary-color:#43d399;
+  --secondary-button-bg :  #fbfbfb ; 
+  --primary-button-text: #4A4A4A ;
+  --secondary-button-text : white ;
+  --pop-up-bg :  #ffffff  ;
+  --primary-text : #4A4A4A ; 
+  --secondary-text : rgba(136, 136, 136, 1)  ;  
+  --input-border :white ;
+
+}
+
+
+.primary-text{
+  color: var(--primary-color) !important;
+
+}
+
+.primary-button{
+  color: var(--primary-button-text) ;
+  background-color: var(--primary-color) ;
+  font-family: Inter, sans-serif !important; 
+}
+.secondary-button{
+  color: var(--secondary-button-text)  !important ;
+  background-color: var(--secondary-button-bg) !important ;
+}
+.primary-color-80tr{
+  color: var(--primary-color)!important ;
+  opacity: 0.8;
+}
+
+
+.secondary-text{
+  color: var( --primary-color) !important;
+  opacity: 0.6 !important;
+}
+
+
+
+.secondary-button:hover {
+  -webkit-transition: 0.3s -webkit-filter ease;
+  -moz-transition: 0.3s -moz-filter linear;
+  -moz-transition: 0.3s filter linear;
+  -ms-transition: 0.3s -ms-filter linear;
+  -o-transition: 0.3s -o-filter linear;
+  transition: 0.3s filter linear, 0.3s -webkit-filter linear;
+  filter: brightness(85%)
+}
+
+.primary-button:hover {
+  opacity: 0.7
+}
+
+
+
+
+
+
 
 * {
   box-sizing: border-box;
@@ -18,13 +77,18 @@ a {
 body {
   width: 100%;
   min-height: 100vh;
-  background-image: url(img/1.png);
+  background-image: url("BG/2.webp");
   background-size: cover;
+  background-position: center;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -o-font-smoothing: antialiased
 }
+
+
+
+
 .blank {
   height: 100px;
   width: 100%
@@ -32,16 +96,29 @@ body {
 .left-blur {
   position: absolute;
   justify-content: space-between;
-
   min-height: 100%;
   width: 525px;
-  border: 1px solid rgba(255, 255, 255, .4);
+  border-left: 1px solid rgba(255, 255, 255, .4);
+  border-right: 1px solid rgba(255, 255, 255, .4);
   background: rgba(255, 255, 255, .2);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   display: flex;
   flex-direction: column
 }
+
+#left-blur{
+  left: 0;
+} 
+#right-blur{
+  right: 0;
+} 
+
+#center-blur{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+} 
 
 
 .header--left-blur {
@@ -59,12 +136,13 @@ body {
   gap: 30px
 }
 .header--left-blur__t1 {
-  color: #4a4a4a;
+
   font-size: 33px;
   font-style: normal;
   font-weight: 700;
   line-height: normal
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -83,7 +161,6 @@ input {
   height: 35px;
   background-color: inherit;
   border: none;
-  color: #2e2e2e !important;
   border-bottom: transparent 2px solid;
   font-size: 16px;
   font-style: normal;
@@ -93,22 +170,24 @@ input {
   padding-left: 10px;
   position: relative
 }
-input, select {
+select {
   color: #4a4a4a
 }
 input:focus {
   color: #4a4a4a
 }
+
 .input-container::before {
   content: "";
   transition: width 2s;
   position: absolute;
   width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(136, 136, 136, .45) 0, rgba(136, 136, 136, .2) 100%);
+  height: 2px;
+  background: var(--underLine-color);
   bottom: 0;
   left: 0
 }
+
 #underline {
   position: relative;
   bottom: 0;
@@ -121,7 +200,7 @@ input:focus {
   position: absolute;
   width: 0;
   height: 2px;
-  background-color: #4a4a4a;
+  background-color: var(--primary-color);
   bottom: 0;
   left: 0;
   transition: width .5s ease
@@ -152,26 +231,7 @@ button {
   -webkit-transition: opacity 0.3s ease;
 }
 
-.darkGreyBtn:hover {
-  opacity: 0.7
-}
 
-.lightGreyBtn {
-  background-color: #eac5c5 !important;
-}
-
-.drkGreyText {
-  color: #4a4a4a !important;
-}
-.lightGreyBtn:hover {
-  -webkit-transition: 0.3s -webkit-filter ease;
-  -moz-transition: 0.3s -moz-filter linear;
-  -moz-transition: 0.3s filter linear;
-  -ms-transition: 0.3s -ms-filter linear;
-  -o-transition: 0.3s -o-filter linear;
-  transition: 0.3s filter linear, 0.3s -webkit-filter linear;
-  filter: brightness(85%)
-}
 .btn-container {
   width: 320px;
   height: 45px;
@@ -184,7 +244,6 @@ button {
 .btn-container h2 {
   position: absolute;
   bottom: -30px;
-  color: #888;
   text-align: center;
   font-family: Inter;
   font-size: 12px;
@@ -192,7 +251,6 @@ button {
 }
 .submiBtn {
   height: 100%;
-  background: #4a4a4a;
   border: none;
   font-size: 18px;
   font-size: 600
@@ -208,19 +266,14 @@ button {
   transition-duration: .2s;
   transition-timing-function: ease
 }
-.htm5lBtn:hover {
-  cursor: pointer;
-  color: #4a4a4a
-}
+
 .btn-container button:first-child {
   width: 70%;
-  color: #fff;
   text-align: center;
   font-family: Inter;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  color: #fff;
   border-radius: 6px 0 0 6px
 }
 
@@ -285,7 +338,7 @@ button {
   top: 0
 }
 .footer--left-blur a {
-  color: rgba(74, 74, 74, .8);
+  color: var(--primary-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -321,13 +374,18 @@ button {
   -o-transition: 0.3s -o-filter linear;
   transition: 0.3s filter linear, 0.3s -webkit-filter linear;
 }
+
+#togglePassword path{
+  stroke : var(--primary-color) ;
+}
+
 #togglePassword:hover {
   cursor: pointer;
-  filter: brightness(50%)
+  filter: brightness(80%)
 }
 
 #bold-a:hover {
-  color: #383636;
+  filter: brightness(65%);
   transition: color 0.3s ease;
   -webkit-transition: color 0.3s ease;
 }
@@ -358,6 +416,20 @@ header h1 {
   font-size: 20px;
   font-size: 1.25rem
 }
+
+
+.popup-f2a #underline::before , .cd-popup  #underline::before {
+  background:#888; 
+ 
+}
+
+  .popup-f2a  .input-container::before , .popup-f2a .input-container::before , #cd-popup-container__form .input-container::before {
+    height: 2px;
+    background: linear-gradient(90deg, rgba(136, 136, 136,.45) 0, rgba(136, 136, 136, .2) 100%) !important;
+  }
+
+
+
 .cd-popup {
   position: fixed;
   transition: all 2s;
@@ -382,7 +454,7 @@ header h1 {
   height: 237px;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background: var(--pop-up-bg);
   border-radius: .25em .25em .4em .4em;
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, .2);
@@ -401,7 +473,6 @@ header h1 {
   padding: 42px 42px 42px 42px
 }
 .cd-popup-container p {
-  color: #4a4a4a;
   text-align: center;
   font-family: Inter;
   font-size: 22px;
@@ -443,8 +514,6 @@ header h1 {
   transition: background-color .2s
 }
 .cd-popup-container .cd-buttons li:first-child {
-  background: #4a4a4a;
-  color: #fff;
   display: flex;
   width: 135.503px;
   height: 44px;
@@ -607,7 +676,6 @@ header h1 {
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  color: #fff;
   text-align: center;
   font-family: Inter;
   font-size: 16px;

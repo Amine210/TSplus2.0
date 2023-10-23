@@ -1,5 +1,26 @@
+/*-------------------dynamic underLine linear-gradient ---------------------------*/ 
+const rootStyles = getComputedStyle(document.documentElement);
+const mainColor = rootStyles.getPropertyValue('--primary-color');
+
+function addAlpha(color, opacity) {
+    // coerce values so ti is between 0 and 1.
+    var _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
+    return color + _opacity.toString(16).toUpperCase();
+}
+
+let c1 = addAlpha(mainColor, 0.45) ;
+let c2 = addAlpha(mainColor, 0.25) ;
+let C ="linear-gradient(90deg, " +c1+" 0%,"+c2+" 100%)" 
 
 
+document.documentElement.style.setProperty('--underLine-color', C);
+
+
+
+
+/*-------------------dynamic color calculator for secondary button ---------------------------*/ 
+
+var r = document.querySelector(':root');
 
 function componentFromStr(numStr, percent) {
     var num = Math.max(0, parseInt(numStr, 10));
@@ -17,6 +38,7 @@ function rgbToHex(rgb) {
 
         hex = "#" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
     }
+    
     return hex;
 }
 
@@ -27,7 +49,6 @@ function shouldTextBeBlack (backgroundcolor) {
   
   function computeLuminence(backgroundcolor) {
     var colors = hexToRgb(backgroundcolor);
-    
     var components = ['r', 'g', 'b'];
     for (var i in components) {
         var c = components[i];
@@ -42,7 +63,6 @@ function shouldTextBeBlack (backgroundcolor) {
     }
     
     var luminence = 0.2126 * colors.r + 0.7152 * colors.g + 0.0722 * colors.b;
-    console.log(luminence)
     return luminence;
   }
   
@@ -56,21 +76,37 @@ function shouldTextBeBlack (backgroundcolor) {
   }
 
 
-const lightGreyBtn = document.querySelectorAll(".lightGreyBtn") 
+const lightGreyBtn = document.querySelectorAll(".secondary-button") 
+const primaryBtn = document.querySelectorAll(".primary-button") 
 const arrow = document.querySelector("#arrow path")
 lightGreyBtn.forEach(btn => {
    
-    let myDivObjBgColor = window.getComputedStyle(btn).backgroundColor
-    
 
+    let myDivObjBgColor = window.getComputedStyle(btn).backgroundColor
     if(shouldTextBeBlack(rgbToHex(myDivObjBgColor))){
-      console.log("light")
-      btn.classList.add("drkGreyText");
-      arrow.style.stroke="#4a4a4a"
+      r.style.setProperty('--secondary-button-text', '#4a4a4a');
+      arrow.style.stroke='#4a4a4a';
      
     }
     else {
+        r.style.setProperty('--secondary-button-text', 'white');
         arrow.style.stroke="white"
+    }
+  
+   
+})
+
+
+primaryBtn.forEach(btn => {
+   
+    let myDivObjBgColor = window.getComputedStyle(btn).backgroundColor
+    
+    var r = document.querySelector(':root');
+    if(shouldTextBeBlack(rgbToHex(myDivObjBgColor))){
+      r.style.setProperty('--primary-button-text','#4a4a4a');
+    }
+    else {
+        r.style.setProperty('--primary-button-text', 'white');
     }
   
    

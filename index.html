@@ -9,7 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="left-blur" id="right-blur">
+  <!--id="left-blur" / "right-blur" / "center-blur" -->
+  <div class="left-blur" id="left-blur">
     <div class="header--left-blur">
       <div class="header--left-blur__logo">
         <svg width="60" height="45" viewbox="0 0 60 45" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,25 +46,32 @@
             <stop offset="1" stop-color="#A8A8A8"></stop>
           </lineargradient>
         </defs></svg>
-        <h1 class="header--left-blur__t1">Welcome To TSplus</h1>
+        <h1 class="header--left-blur__t1 primary-text">Welcome To TSplus</h1>
       </div>
       <form>
         <div class="input-container">
-          <input name="text" type="text" placeholder="Enter your e-mail" class="email">
+          <input class="secondary-text" name="text" type="text" placeholder="Enter your e-mail" class="email">
           <div id="underline"></div>
         </div>
         <div class="input-container">
-          <input class="password" type="password" placeholder="Enter your password"> <img id="togglePassword" src="img/eye-icon.svg" alt="eye-icon">
+          
+          <input  class="password secondary-text" type="password" placeholder="Enter your password">
+          <svg id="togglePassword" width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.03192 5.81734C0.989442 5.68968 0.989442 5.5517 1.03192 5.42404C1.88561 2.85557 4.30882 1.00293 7.16472 1.00293C10.0194 1.00293 12.4414 2.85373 13.2969 5.42096C13.34 5.54837 13.34 5.68624 13.2969 5.81426C12.4438 8.38273 10.0206 10.2354 7.16472 10.2354C4.31005 10.2354 1.88746 8.38458 1.03192 5.81734Z" stroke="#888888" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.01115 5.61919C9.01115 6.10891 8.81661 6.57858 8.47033 6.92486C8.12405 7.27114 7.65438 7.46568 7.16467 7.46568C6.67495 7.46568 6.20528 7.27114 5.859 6.92486C5.51272 6.57858 5.31818 6.10891 5.31818 5.61919C5.31818 5.12947 5.51272 4.65981 5.859 4.31353C6.20528 3.96725 6.67495 3.77271 7.16467 3.77271C7.65438 3.77271 8.12405 3.96725 8.47033 4.31353C8.81661 4.65981 9.01115 5.12947 9.01115 5.61919Z" stroke="#888888" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            
+         
           <div id="underline"></div>
         </div><!-- id='invisble-item'-> MAKE THE HTML5 BUTTON INVISIBLE-->
-        <div id="invisble-item" class="input-container">
+        <div id="invisble-item" class="input-container  secondary-text">
           <input class="password" type="text" placeholder="Enter your domain">
           <div id="underline"></div>
         </div>
         <div class="btn-container">
           <!-- id='submiBtn-extanded' -> MAKE THE BUTTON 100% width + ADD BORDER RADUIS-->
-          <button class="submiBtn darkGreyBtn" type="submit">Log in</button>
-          <div  class="select-wrapper"><select class="input-select lightGreyBtn">
+          <button class="submiBtn primary-button" type="submit">Log in</button>
+          <div  class="select-wrapper"><select class="input-select secondary-button">
             <option value="">
               HTML5
             </option>
@@ -75,7 +83,7 @@
             </svg></div>
         
             <!-- id='invisble-item'-> MAKE THE Reset Windows password BUTTON INVISIBLE-->
-            <h2  class="htm5lBtn">Reset Windows password</h2>
+            <h2  class="htm5lBtn secondary-text">Reset Windows password</h2>
          
         </div>
       </form>
@@ -83,41 +91,41 @@
     <div class="blank"></div>
     <div class="footer--left-blur__before">
       <div class="footer--left-blur">
-        <h2>For help, please visit <a id="bold-a" href="#">this page.</a></h2>
+        <h2 class="primary-color-80tr">For help, please visit <a id="bold-a" href="#">this page.</a></h2>
       </div>
     </div>
   </div>
   <div class="cd-popup" id="cd-popup1" role="alert">
     <div class="cd-popup-container">
-      <p>Your Windows password expires in 2 days ?</p>
+      <p style="color: #4a4a4a;">Your Windows password expires in 2 days ?</p>
       <h2>Would you like to change it now?</h2>
       <ul class="cd-buttons">
-        <li class="darkGreyBtn">Yes</li>
-        <li class="lightGreyBtn">No</li>
+        <li class="popup-primary-button">Yes</li>
+        <li class="popup-secondary-button">No</li>
       </ul><a href="#0" class="cd-popup-close img-replace"></a>
     </div>
   </div>
   <div class="cd-popup" id="cd-popup-form" role="alert">
     <div class="cd-popup-container" id="cd-popup-container__form">
-      <p>Reset your Windows password</p>
+      <p class="popUp-primary-text">Reset your Windows password</p>
       <form action="">
         <div class="input-container">
-          <input type="text" placeholder="Your username (Ex: CORP\johndoe)">
+          <input class="popup-input-text" type="text" placeholder="Your username (Ex: CORP\johndoe)">
           <div id="underline"></div>
         </div>
         <div class="input-container">
-          <input type="text" placeholder="Your old password">
+          <input  class="popup-input-text"  type="text" placeholder="Your old password">
           <div id="underline"></div>
         </div>
         <div class="input-container">
-          <input type="text" placeholder="Your new password">
+          <input  class="popup-input-text"   type="text" placeholder="Your new password">
           <div id="underline"></div>
         </div>
         <div class="input-container">
-          <input type="text" placeholder="Confirm your new password">
+          <input   class="popup-input-text" type="text" placeholder="Confirm your new password">
           <div id="underline"></div>
         </div>
-      </form><button class="submiBtn darkGreyBtn" type="submit">Validate</button> <a href="#0" class="cd-popup-close img-replace"></a>
+      </form><button class="submiBtn popup-primary-button" type="submit">Validate</button> <a href="#0" class="cd-popup-close img-replace"></a>
     </div>
   </div>
 
@@ -125,29 +133,29 @@
   <div class="popup-f2a "  >
     <div class="popup-f2a__container">
       <div class="popup-f2a__container--100">
-        <div class="popup-f2a__container__header">
+        <div class="popup-f2a__container__header popUp-primary-text">
           Protégez votre compte avec l'authentification double facteur
         </div>
         <div class="popup-f2a__container__content">
-          <button id="button1" class="lightGreyBtn">Configurez votre application d'authentification 2FA</button>
+          <button id="button1" class="popup-primary-button">Configurez votre application d'authentification 2FA</button>
           <div style="height: 0px;" class="extand-div" id="extand-div1">
             <ul>
               <li>1. Ouvrez votre application d'authentification sur votre téléphone portable.</li>
               <li>2. Scannez le QR code affiché ci-dessous:</li>
               <img widt="50" height="130" src="./img/TSplus.png" class="qrCodeImg">
             </ul>
-          </div><button id="button2"  class="darkGreyBtn">Ou recevez votre de vérification par e-mail</button>
+          </div><button id="button2"  class="popup-secondary-button">Ou recevez votre de vérification par e-mail</button>
     
           <div style="height: 0px;" class="extand-div" id="extand-div2">
             <form>
-              <div class="input-container">
-                <input type="text" placeholder="Entrez votre adresse mail ">
+              <div class="input-container po">
+                <input class="popup-input-text" "text" placeholder="Entrez votre adresse mail ">
                 <img class="info-icon" height="15" src="img/information.png">
                 <div id="underline"></div>
                
               </div>
               <div class="button-container">
-                <button id="email-btn" class="darkGreyBtn" >Envoyer un e-mail</button>
+                <button id="email-btn" class="popup-primary-button" >Envoyer un e-mail</button>
                 <img class="info-icon" height="15" src="img/information.png">
                     
 
@@ -161,12 +169,12 @@
               
               <form class="footer-form">
                   <div class="input-container">
-                    <input type="text" placeholder="Entrez le code de vérification reçu" >
+                    <input  class="popup-input-text"type="text" placeholder="Entrez le code de vérification reçu" >
                     <img class="info-icon" height="15" src="img/information.png">
                     <div id="underline"></div>
                   </div>
                  
-                  <button id="sumbmit-btn" class="darkGreyBtn">Valider</button>
+                  <button id="sumbmit-btn" class="popup-primary-button">Valider</button>
                 </form>
                 <div class="tooltip-float" id="tf3">
                   Validez votre code de vérification reçu par SMS, e-mail ou via votre application de double-authentification
