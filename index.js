@@ -3,7 +3,6 @@ const rootStyles = getComputedStyle(document.documentElement);
 const mainColor = rootStyles.getPropertyValue('--primary-color');
 
 function addAlpha(color, opacity) {
-    // coerce values so ti is between 0 and 1.
     var _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
     return color + _opacity.toString(16).toUpperCase();
 }
@@ -13,8 +12,12 @@ let c2 = addAlpha(mainColor, 0.25) ;
 let C ="linear-gradient(90deg, " +c1+" 0%,"+c2+" 100%)" 
 
 
-document.documentElement.style.setProperty('--underLine-color', C);
 
+document.documentElement.style.setProperty('--underLine-color', C);
+/*---------------------------------Panel transparency ------------------------------*/ 
+const panelColor = rootStyles.getPropertyValue('--panel-color');
+let color = addAlpha(panelColor, 0.2) ;
+document.documentElement.style.setProperty('--panel-color', color);
 
 
 
@@ -326,10 +329,15 @@ document.addEventListener("mousemove", function(event) {
 } )
 
 
+/*------------------------ "Log on" Button ----------------------------------------*/
+let logOnBtn = document.querySelector(".submiBtn")
+let selectWrapper = document.querySelector(".select-wrapper")
+
+if(selectWrapper.id =="hidden-item"){
+    logOnBtn.setAttribute('id', 'submiBtn-extanded');
+}
 
 
-
- 
 
   
 
