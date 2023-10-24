@@ -1,5 +1,5 @@
 :root {
-  --primary-color:#ffffff;
+  --primary-color:#000000;
   --secondary-button-bg :  #888 ; 
   --primary-button-text: #4A4A4A ;
   --secondary-button-text : white ;
@@ -8,6 +8,7 @@
   --secondary-text : rgba(136, 136, 136, 1)  ;  
   --input-border :white ;
   --panel-color:#ffffff;
+  --separate-line : #ffffff;
 
 }
 
@@ -94,7 +95,7 @@ body {
   height: 100px;
   width: 100%
 }
-.left-blur {
+.panel-blur {
   position: absolute;
   justify-content: space-between;
   min-height: 100%;
@@ -696,12 +697,12 @@ header h1 {
   .header--left-blur {
       transform: translateY(-70px)
   }
-  .left-blur {
+  .panel-blur {
       width: 100%;
       justify-content: center;
       align-items: center
   }
-  .left-blur>* {
+  .panel-blur>* {
       width: 525px
   }
   .footer--left-blur {

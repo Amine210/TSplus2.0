@@ -16,6 +16,8 @@ let C ="linear-gradient(90deg, " +c1+" 0%,"+c2+" 100%)"
 document.documentElement.style.setProperty('--underLine-color', C);
 /*---------------------------------Panel transparency ------------------------------*/ 
 const panelColor = rootStyles.getPropertyValue('--panel-color');
+
+/* panel transparency value */
 let color = addAlpha(panelColor, 0.2) ;
 document.documentElement.style.setProperty('--panel-color', color);
 
