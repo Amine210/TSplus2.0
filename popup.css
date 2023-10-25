@@ -43,7 +43,7 @@
 
 .popup-f2a__container{
     background-color: var(--pop-up-bg) ;
-    height: 85vh;
+    height: 88vh;
     width: 35%;
     border: 1px solid white;
     padding: 30px 60px;
@@ -67,7 +67,7 @@
   line-height: normal;
 }
 .popup-f2a__container__content{
-    width: 95%;
+    width: 96%;
     height: auto;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 6px;
@@ -223,7 +223,7 @@ ul{
 .qrCodeImg{
         position: relative;
         left: 50px;
-        top: 10px;
+        top: 0px;
 }
 
 .info-icon{
@@ -239,8 +239,8 @@ ul{
 .tooltip-float{
     background-color:#888 ;
     color: white;
-    width: 250px;
     position: absolute;
+    width: 250px;
     right: 0;
     top: 0;
     opacity: 0;
@@ -257,9 +257,22 @@ ul{
     display:none;
     
 }
+
+#tf1 {
+   
+    left: 75px;
+    top: 200px;
+    
+ 
+}
+#tf2 {
+    left: 75px;
+    top: 200px;
+    
+}
 #tf3{
     position: absolute;
-    left: 75px;
+    left: 40px;
     top: -70px;
    
 }
@@ -271,9 +284,9 @@ ul{
 }
 
 
-@media screen and (max-width:1350px) {
+@media screen and (max-width:1459px) {
     .popup-f2a__container{
-        width: 80%;
+        width: 50%;
 
        
         align-items: center;
@@ -289,13 +302,14 @@ ul{
         position: relative;
         left: 50px;
         top: 20px;
-}
+   }
+ 
   }
 
 
 
 
-  @media screen and (min-width:701px)and (max-width:840px) {
+  @media screen and (min-width:701px)and (max-width:1010px) {
     .popup-f2a{
         justify-content: center;
         align-items: center;
@@ -304,7 +318,7 @@ ul{
     
     .popup-f2a__container{
      
-        width: 95%;
+        width: 75%;
     }
 
   
@@ -329,6 +343,7 @@ ul{
         height: 130px;
     }
 
+
   
 
     
@@ -343,7 +358,7 @@ ul{
   @media screen and (max-width:700px){
     .popup-f2a__container{
      
-        width: 90%;
+        width: 70%;
         padding: 30PX;
         height: 85% ;
         align-items: center;
@@ -367,6 +382,11 @@ ul{
 
     .popup-f2a__container__content form .input-container input {
          height: 25px; 
+         font-size: 14px;
+         width: 250px;
+     }
+     .popup-f2a__container__content form .input-container  {
+        width: 250px;
      }
   
     .popup-f2a li {
@@ -388,26 +408,28 @@ ul{
         align-items: center !important;
         padding: 30px ;
     }
-
-    #underline::before {
+    .popup-f2a__container__content form  #underline{
+        width: 250px;
+    }
+    .popup-f2a__container__content form  #underline::before {
       
-        bottom: 1px;
+        bottom: 4px;
         left: 0;
        
-      }
-      .tooltip-float{
-        transform: translate(-120%,-50%) !important;
-      }
-
-      #tf3{
- 
-        
-        left: 350px;
-        top: -10px;
        
+      }
+    
+
+    #tf3{    
+        left: 30px; 
     }
-    #tf1,  #tf2{
-        transform: translateX(-550px) !important;
+   
+
+    .extand-div .button-container{
+        width: 260px;
+    } 
+    .extand-div .button-container .popup-primary-button , .footer-form  .popup-primary-button  {
+        width: 250px !important ;
     }
   }
 

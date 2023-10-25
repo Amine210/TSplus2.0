@@ -1,39 +1,21 @@
-/*-------------------dynamic underLine linear-gradient ---------------------------*/ 
-const rootStyles = getComputedStyle(document.documentElement);
-const mainColor = rootStyles.getPropertyValue('--primary-color');
+/*------------------- Useful Functions ---------------------------*/ 
 
-function addAlpha(color, opacity) {
-    var _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
-    return color + _opacity.toString(16).toUpperCase();
-}
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+  }
 
-let c1 = addAlpha(mainColor, 0.45) ;
-let c2 = addAlpha(mainColor, 0.25) ;
-let C ="linear-gradient(90deg, " +c1+" 0%,"+c2+" 100%)" 
-
-
-
-document.documentElement.style.setProperty('--underLine-color', C);
-/*---------------------------------Panel transparency ------------------------------*/ 
-const panelColor = rootStyles.getPropertyValue('--panel-color');
-
-/* panel transparency value */
-let color = addAlpha(panelColor, 0.2) ;
-document.documentElement.style.setProperty('--panel-color', color);
-
-
-
-/*-------------------dynamic color calculator for secondary button ---------------------------*/ 
-
-var r = document.querySelector(':root');
-
-function componentFromStr(numStr, percent) {
+  function componentFromStr(numStr, percent) {
     var num = Math.max(0, parseInt(numStr, 10));
     return percent ?
         Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
 }
 
-function rgbToHex(rgb) {
+  function rgbToHex(rgb) {
     var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
     var result, r, g, b, hex = "";
     if ( (result = rgbRegex.exec(rgb)) ) {
@@ -47,12 +29,8 @@ function rgbToHex(rgb) {
     return hex;
 }
 
-
-function shouldTextBeBlack (backgroundcolor) {
-    return computeLuminence(backgroundcolor) > 0.5;
-  }
-  
-  function computeLuminence(backgroundcolor) {
+/* computeLuminence : Calculate luminence Of a given Color */ 
+function computeLuminence(backgroundcolor) {
     var colors = hexToRgb(backgroundcolor);
     var components = ['r', 'g', 'b'];
     for (var i in components) {
@@ -70,17 +48,49 @@ function shouldTextBeBlack (backgroundcolor) {
     var luminence = 0.2126 * colors.r + 0.7152 * colors.g + 0.0722 * colors.b;
     return luminence;
   }
-  
-  function hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
+
+
+  /* shouldTextBeBlack Check if Color is Light -> return true */
+function shouldTextBeBlack (backgroundcolor) {
+    return computeLuminence(backgroundcolor) > 0.5;
   }
+  
+
+/*-------------------dynamic underLine linear-gradient ---------------------------*/ 
+const rootStyles = getComputedStyle(document.documentElement);
+const mainColor = rootStyles.getPropertyValue('--primary-color');
+/* When mainColor is light : Add 0.2 to the opacity of all secondary Color */
+let delta = 0 ; 
+if(shouldTextBeBlack(mainColor)){
+    delta = 0.2 ; 
+    document.documentElement.style.setProperty('--input-opacity', 0.8);
+}
+
+function addAlpha(color, opacity) {
+    var _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
+    return color + _opacity.toString(16).toUpperCase();
+}
+let c1 = addAlpha(mainColor, 0.45+delta) ;
+let c2 = addAlpha(mainColor, 0.20+delta) ;
+let C ="linear-gradient(90deg, " +c1+" 0%,"+c2+" 100%)" 
 
 
+
+document.documentElement.style.setProperty('--underLine-color', C);
+/*---------------------------------Panel transparency ------------------------------*/ 
+
+
+
+const panelColor = rootStyles.getPropertyValue('--panel-color');
+const panelTransparency = rootStyles.getPropertyValue('--panel-transparency');
+let color = addAlpha(panelColor, panelTransparency) ; 
+document.documentElement.style.setProperty('--panel-color', color);
+
+
+
+/*-------------------dynamic color calculator for secondary button ---------------------------*/ 
+
+var r = document.querySelector(':root');
 const lightGreyBtn = document.querySelectorAll(".secondary-button") 
 const primaryBtn = document.querySelectorAll(".primary-button") 
 const arrow = document.querySelector("#arrow path")
@@ -118,20 +128,18 @@ primaryBtn.forEach(btn => {
 })
 
 
+/*------------------- Password type toggle   ---------------------------*/ 
 
 const password = document.querySelector('.password');
 const togglePassword = document.querySelector('#togglePassword');
-
-
 togglePassword.addEventListener('click', function (e) {
 // toggle the type attribute
 const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
 password.setAttribute('type', type);
-// toggle the eye slash icon
-this.classList.toggle('fa-eye-slash');
 });
 
 
+/*------------------- PopUp toggle   ---------------------------*/ 
 
 const popup1 = document.querySelector('#cd-popup1');
 const popup2 = document.querySelector('#cd-popup-form') ;  
@@ -144,9 +152,21 @@ const submitBtn = document.querySelector('.submiBtn');
 const htm5lBtn = document.querySelector('.htm5lBtn');
 let crossBtn = document.querySelectorAll('.cd-popup-close');
 
-
-
 crossBtn = Array.from(crossBtn)
+
+function hidePopUp (popUp){
+        
+    popUp.style.opacity="0"
+    popUp.style.visibility="hidden"
+
+}
+
+function showPopUp (popUp){
+
+popUp.style.opacity="1"
+popUp.style.visibility="visible"
+popUp.style.transform = "scale(1)";
+}
 
 
 submitBtn.addEventListener("click",(e)=>{
@@ -173,19 +193,7 @@ crossBtn.forEach(element => {
 
 
 
-function hidePopUp (popUp){
-        
-            popUp.style.opacity="0"
-            popUp.style.visibility="hidden"
 
-}
-
-function showPopUp (popUp){
-   
-    popUp.style.opacity="1"
-    popUp.style.visibility="visible"
-    popUp.style.transform = "scale(1)";
-}
 
 function isvisible(popUp){
     if(popUp.style.opacity =="1")  return true 
@@ -287,7 +295,7 @@ function isShrinked(element){
 })  
 
 
-/* -------------- popup-2fa__popUp-info -------------------- */ 
+/* -------------- tooltips -------------------- */ 
 
 const infoIncons = document.querySelectorAll(".info-icon")
 
@@ -302,13 +310,13 @@ const y3 = infoIncons[2].getBoundingClientRect().top
 
 
 
-
-    document.querySelector(`#tf1`).style.left=`${x1-270}px`
-    document.querySelector(`#tf1`).style.top=`${y1-50}px`
+/*
+document.querySelector(`#tf1`).style.left=`${x1}px`
+document.querySelector(`#tf1`).style.top=`${y1}px`
     
-    document.querySelector(`#tf2`).style.left=`${x2-270}px`
-    document.querySelector(`#tf2`).style.top=`${y2-100}px`
-    
+document.querySelector(`#tf2`).style.left=`${x2}px`
+document.querySelector(`#tf2`).style.top=`${y2}px`
+*/  
 
 
 
