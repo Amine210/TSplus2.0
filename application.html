@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ##APPSPAGETITLE## -->
+    <title>Application</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            font-family: Inter, sans-serif !important;
+        }
+        #panel-blur{
+            width: 100%;
+            padding-left: 77px;
+            padding-right: 100px;
+            padding-top: 69px;
+            display: block;
+            height: auto !important;
+            padding-bottom: 50px;
+            border: none;
+            backdrop-filter: blur(var(--panel-blur)); 
+            -webkit-backdrop-filter:blur(var(--panel-blur)); 
+        }
+        #panel-blur > img {
+            margin-bottom: 38px;
+        }
+        .app-wrapper{
+            position: relative;
+            width: auto !important;
+            height:auto;
+            margin-top: 22px;
+            padding-bottom: 46px;
+            padding-top: 32px;
+
+            
+        }
+        @media screen and (max-width:520px) {
+            #panel-blur{
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-top: 55px;
+            }
+        } 
+        .app-wrapper::before{
+            width: 100%;
+            height: 1px;
+            background:var( --underLine-color) ;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+        }
+        .app{
+            transition: all 2s;
+            max-height: 370px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+     
+            height:auto;
+            display: flex;
+            gap: 17px;
+            margin-top: 10px;
+            position: relative;
+            flex-wrap:wrap;
+            padding-bottom: 15px;
+            padding-right: 5px;
+           
+        
+  
+            
+            
+        }
+      
+        
+
+      
+        .app-button{
+            transition: all 2s;
+            height: 100px;
+            width: 100px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            flex-shrink: 0;
+            transition: transform .2s ease-in-out;
+            -webkit-transition: -moz-transform .3s ease-out; 
+            -moz-transition: -webkit-transform .3s ease-out; 
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.90);
+            /* app box */
+            box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(50px); 
+            -webkit-backdrop-filter:blur(50px);
+            text-align: center;
+            font-family: Inter;
+            font-size: 12px !important;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 12px; /* 100% */ 
+                        
+           
+        }
+        .app-button:hover{
+            filter: brightness(90%);
+            cursor: pointer;
+            transform: scale(1.1);  
+        }
+     
+        .app-button h1 {
+            text-align: center;
+            font-family: Inter;
+            font-style: normal;
+            font-weight: 700;
+
+            font-family: Inter;
+            font-size: 25px;
+            font-weight: 700;
+            line-height: normal; 
+                    
+        }
+        .app-button h2 {
+        
+                text-align: center;
+                font-family: Inter;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 12px; /* 100% */
+                opacity: 0.8;
+                color: #4a4a4a !important;
+             }
+        .logOff{
+            width: 97px;
+            height: 38px; 
+            position: absolute;
+            right: 0;
+            transform: translateY(100%);
+            border: 0;
+            border-radius: 6px;
+            display: flex;
+            gap: 10px;
+            font-weight: 600 !important;
+            color : var(--primary-button-text);
+            margin-top: 10px;
+
+        }
+        .logOff:hover{
+            filter: brightness(55%);
+
+        }
+        .blur{
+            width: 100%;
+            height: 20px;
+            background-color: #000000;
+            position: fixed;
+            z-index: 5;
+          
+        }
+       
+    </style>
+    <script src="software/js/jquery.min.js"></script>
+    <script type="text/javascript" src="software/remoteapp2.js"></script>
+    <script>var numberOfAppsPerLine = 0; /* not applicable to new themes */</script>
+    <script src="software/common_applications.js?v=5"></script>
+    <link rel="stylesheet" type="text/css" href="custom.css" />
+    <script type="text/javascript" src="custom.js"></script>
+</head>
+<body onload="displayAssignedApps(false);">
+    <section class="panel-blur" id="panel-blur">
+          <!-- ##LOGO## -->
+          <img src="/img/logo.svg" width="59" height="45"  height="">
+          <!-- ##APPSPAGETITLE## -->
+          <h1 class="header--left-blur__t1 primary-text">My Applications</h1>
+          <div class="app-wrapper">
+            <div class="app " id="apps">
+
+                <!-- Apps icon here -->
+                <div class="app-button">
+                    <img src="img/outlook.png" width="48">
+                    <h2 class="primary-text">Outlook</h2    >
+                </div>
+                <!-- end of Apps icon  -->
+            </div>
+
+            <button class="logOff primary-button">
+               Log off
+                <svg id="logOff" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="logout_icon_151219 1" clip-path="url(#clip0_295_223)">
+                    <path id="Vector" d="M12.3756 6.66683V5.00016C12.3756 4.55814 12.1963 4.13421 11.8771 3.82165C11.558 3.50909 11.1251 3.3335 10.6737 3.3335H4.71675C4.26536 3.3335 3.83245 3.50909 3.51327 3.82165C3.19409 4.13421 3.01477 4.55814 3.01477 5.00016V15.0002C3.01477 15.4422 3.19409 15.8661 3.51327 16.1787C3.83245 16.4912 4.26536 16.6668 4.71675 16.6668H10.6737C11.1251 16.6668 11.558 16.4912 11.8771 16.1787C12.1963 15.8661 12.3756 15.4422 12.3756 15.0002V13.3335" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path id="Vector_2" d="M6.4187 10H18.3325M18.3325 10L15.7796 7.5M18.3325 10L15.7796 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_295_223">
+                    <rect width="20.4237" height="20" fill="white" transform="translate(0.461792)"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                </button> 
+          </div>
+    </section>
+</body>
+<script src="index.js" defer></script>
+</html>

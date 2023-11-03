@@ -1,5 +1,5 @@
 :root {
-  --primary-color:#2b1b1b;  /* ##PAGECOLOR## */
+  --primary-color:#4A4A4A;  /* ##PAGECOLOR## */
   --secondary-button-bg :  #888 /* ##SECONDARYCOLOR## */; 
   --primary-button-text: #4A4A4A ;
   --secondary-button-text : white ;
@@ -7,13 +7,15 @@
   --primary-text : #4A4A4A ; 
   --input-border :white ;
   --panel-color:#ffffff;/* ##PAGEBACKGROUNDCOLOR## */ ;
-  --panel-blur :15px ; /* ##PANELBLUR## */
-  --panel-transparency :0.2;  /*---- ##PANELTRANSPARENCY## ---*/ 
+  --panel-blur :20px ; /* ##PANELBLUR## */
+  --panel-transparency :0.2; /* ##PANELTRANSPARENCY## */
   --separate-line : #ffffff;
   --input-opacity : 0.6 ; 
 }
 
-
+input:-webkit-autofill { 
+  -webkit-background-clip: text;
+}
 .primary-text{
   color: var(--primary-color) !important;
 
@@ -66,6 +68,7 @@
   margin: 0;
   padding: 0;
   font-family: Inter, sans-serif !important;
+  scroll-behavior: smooth !important;
 }
 
 button {
@@ -80,7 +83,7 @@ a {
 body {
   width: 100%;
   min-height: 100vh;
-  background-image: url("BG/brazil.jpg"); /* ##PHOTONAME## */ 
+  background-image: url("BG/default.jpg"); /* ##PHOTONAME## */ 
   background-size: cover;
   background-position: center;
   position: relative;
@@ -236,7 +239,7 @@ button {
 
 }
 
-.cd-buttons li {
+.cd-buttons input {
   transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
 }
@@ -294,12 +297,12 @@ button {
 #arrow {
   position: absolute;
   top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
+  right: -12px;
+  transform: translateY(-30%);
   pointer-events: none;
 }
 .input-select {
-  width: 77px;
+  width: 100px;
   border: none;
   background: #a3a3a3;
 
@@ -707,7 +710,7 @@ header h1 {
       justify-content: center;
       align-items: center
   }
-  .panel-blur>* {
+  .panel-blur>div {
       width: 525px
   }
   .footer--left-blur {

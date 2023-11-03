@@ -94,6 +94,7 @@ var r = document.querySelector(':root');
 const lightGreyBtn = document.querySelectorAll(".secondary-button") 
 const primaryBtn = document.querySelectorAll(".primary-button") 
 const arrow = document.querySelector("#arrow path")
+
 lightGreyBtn.forEach(btn => {
    
 
@@ -101,17 +102,21 @@ lightGreyBtn.forEach(btn => {
     if(shouldTextBeBlack(rgbToHex(myDivObjBgColor))){
       r.style.setProperty('--secondary-button-text', '#4a4a4a');
       arrow.style.stroke='#4a4a4a';
+   
      
     }
     else {
         r.style.setProperty('--secondary-button-text', 'white');
         arrow.style.stroke="white"
+      
     }
   
    
 })
 
-
+let logOff = document.querySelectorAll("#logOff path")
+logOff=Array.from(logOff)
+console.log(logOff)
 primaryBtn.forEach(btn => {
    
     let myDivObjBgColor = window.getComputedStyle(btn).backgroundColor
@@ -119,9 +124,15 @@ primaryBtn.forEach(btn => {
     var r = document.querySelector(':root');
     if(shouldTextBeBlack(rgbToHex(myDivObjBgColor))){
       r.style.setProperty('--primary-button-text','#4a4a4a');
+      logOff.forEach(e => {
+        e.style.stroke='#4a4a4a'
+      })
+     
+      
     }
     else {
         r.style.setProperty('--primary-button-text', 'white');
+       
     }
   
    
@@ -131,7 +142,6 @@ primaryBtn.forEach(btn => {
 /*------------------- Password type toggle   ---------------------------*/ 
 
 const password = document.querySelector('.password');
-const togglePassword = document.querySelector('#togglePassword');
 togglePassword.addEventListener('click', function (e) {
 // toggle the type attribute
 const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -346,6 +356,7 @@ let selectWrapper = document.querySelector(".select-wrapper")
 if(selectWrapper.id =="hidden-item"){
     logOnBtn.setAttribute('id', 'submiBtn-extanded');
 }
+
 
 
 
