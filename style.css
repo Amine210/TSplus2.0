@@ -1,14 +1,14 @@
 :root {
-  --primary-color:#4A4A4A;  /* ##PAGECOLOR## */
-  --secondary-button-bg :  #888 /* ##SECONDARYCOLOR## */; 
+  --primary-color:/* ##PAGECOLOR## */;  
+  --secondary-button-bg :  /* ##SECONDARYCOLOR## */; 
   --primary-button-text: #4A4A4A ;
   --secondary-button-text : white ;
   --pop-up-bg :  #ffffff  ;
   --primary-text : #4A4A4A ; 
   --input-border :white ;
-  --panel-color:#ffffff;/* ##PAGEBACKGROUNDCOLOR## */ ;
-  --panel-blur :20px ; /* ##PANELBLUR## */
-  --panel-transparency :0.2; /* ##PANELTRANSPARENCY## */
+  --panel-color:/* ##PAGEBACKGROUNDCOLOR## */ ; 
+  --panel-blur : /* ##PANELBLUR## */ ;
+  --panel-transparency :/* ##PANELTRANSPARENCY## */; 
   --separate-line : #ffffff;
   --input-opacity : 0.6 ; 
 }
@@ -159,9 +159,10 @@ form {
   position: relative ;
 }
 
-#hidden-item {
+#hidden-item , #hidden-footer , #hidden-reset , #hidden-html5 , #hidden-domain{
   display: none;
 }
+
 #no-border::before{
   height:80px;
 }

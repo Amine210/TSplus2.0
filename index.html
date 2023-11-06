@@ -155,16 +155,16 @@
           <div id="underline"></div>
         </div>
         <!-- variable -->
-        <!-- id='hidden-item'-> MAKE THE ENTER YOUR DOMAIN INPUT  INVISIBLE-->
-        <div id="hidden-item" class="input-container  secondary-text">
+        <!-- id='hidden-domain'-> MAKE THE ENTER YOUR DOMAIN INPUT  INVISIBLE-->
+        <div id="##HIDDENDOMAIN##" class="input-container  secondary-text">
           <input class="password  secondary-text" type="text" placeholder="Enter your domain" maxlength="28" >
           <div id="underline"></div>
         </div>
         <div class="btn-container">
           <button class="submiBtn primary-button"  id="buttonLogOn" type="button" value="##LABELLOGON##">Log in</button>
           <!-- variable -->
-          <!-- id='hidden-item'-> MAKE THE HTML5 BUTTON INVISIBLE-->
-          <div class="select-wrapper"><select class="input-select secondary-button">
+          <!-- id='hidden-html5'-> MAKE THE HTML5 BUTTON INVISIBLE-->
+          <div id="##HIDDENHTML5##" class="select-wrapper"><select class="input-select secondary-button">
             <option type="radio" value="html5" name="accesstypeuserchoice" id="accesstypeuserchoice_html5" onchange="remoteAppPluginPopinHide();" checked="checked">
               HTML5
             </option>
@@ -176,16 +176,16 @@
             </svg></div>
 
             <!-- variable -->
-            <!-- id='hidden-item'-> MAKE THE Reset Windows password BUTTON INVISIBLE-->
-            <h2  class="htm5lBtn secondary-text" >Reset Windows password</h2>
+            <!-- id='hidden-reset'-> MAKE THE Reset Windows password BUTTON INVISIBLE-->
+            <h2 id="##HIDDENRESET##" class="htm5lBtn secondary-text" >Reset Windows password</h2>
          
         </div>
       </form>
     </div>
     <div class="blank"></div>
     <!-- variable -->
-    <!-- id='hidden-item'-> MAKE THE footer--left-blur__before INVISIBLE-->
-    <div  class="footer--left-blur__before">
+    <!-- id='hidden-footer'-> MAKE THE footer--left-blur__before INVISIBLE-->
+    <div id="##HIDDENFOOTER##" class="footer--left-blur__before">
       <div class="footer--left-blur">
         <h2  class="primary-color-80tr">For help, please visit <a id="bold-a" href="#">this page.</a></h2>
       </div>
@@ -293,14 +293,8 @@
     </div>
     
     </div>
-
-    
-
-   
-    
   </div>
   
-
   <script src="./index.js" defer></script>
   <script>
     (function ($) {
